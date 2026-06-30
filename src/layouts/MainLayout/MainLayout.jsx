@@ -10,7 +10,7 @@ function MainLayout({ children }) {
       <div className="content">
         <Header />
 
-        <main className="main">
+        <main className="main-content">
           {children}
         </main>
       </div>

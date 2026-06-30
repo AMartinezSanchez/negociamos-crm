@@ -1,5 +1,4 @@
-import "./Sidebar.css";
-
+import { NavLink } from "react-router-dom";
 import {
   FaChartPie,
   FaUsers,
@@ -9,28 +8,42 @@ import {
   FaCog,
 } from "react-icons/fa";
 
-const menu = [
-  { icon: <FaChartPie />, text: "Dashboard" },
-  { icon: <FaUsers />, text: "Leads" },
-  { icon: <FaProjectDiagram />, text: "Pipeline" },
-  { icon: <FaCalendarAlt />, text: "Agenda" },
-  { icon: <FaChartBar />, text: "Reportes" },
-  { icon: <FaCog />, text: "Configuración" },
+import "./Sidebar.css";
+
+const menuItems = [
+  { text: "Dashboard", icon: <FaChartPie />, path: "/" },
+  { text: "Leads", icon: <FaUsers />, path: "/leads" },
+  { text: "Pipeline", icon: <FaProjectDiagram />, path: "/pipeline" },
+  { text: "Agenda", icon: <FaCalendarAlt />, path: "/agenda" },
+  { text: "Reportes", icon: <FaChartBar />, path: "/reportes" },
+  { text: "Configuración", icon: <FaCog />, path: "/configuracion" },
 ];
 
 function Sidebar() {
   return (
     <aside className="sidebar">
-      <h2 className="logo">NEGOCIAMOS</h2>
+      <div className="logo">
+        <h2>NEGOCIAMOS</h2>
+        <span>CRM</span>
+      </div>
 
-      <ul className="menu">
-        {menu.map((item, index) => (
-          <li key={index}>
-            {item.icon}
-            <span>{item.text}</span>
-          </li>
-        ))}
-      </ul>
+      <nav>
+        <ul className="menu">
+          {menuItems.map((item) => (
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive ? "menu-link active" : "menu-link"
+                }
+              >
+                {item.icon}
+                <span>{item.text}</span>
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </aside>
   );
 }
