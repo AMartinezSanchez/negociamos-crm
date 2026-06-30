@@ -16,3 +16,35 @@
 
   gap: 20px;
 }
+
+.activity-section {
+  margin-top: 20px;
+}
+
+.activity-section h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activity-item {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.activity-item p {
+  margin: 6px 0;
+  color: #4b5563;
+}
+
+.activity-item span {
+  color: #9ca3af;
+  font-size: 13px;
+}
